@@ -1,6 +1,5 @@
 package streamapi;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -40,9 +39,31 @@ public class Topic2 {
         //Problem No 4 using distinct() and sorted(): Use to remove duplicate from stream and sort the element
 
         Integer [] arr = {2,4 ,6 ,6, 9, 9, 9,8,3,4};
-        Stream<Integer> distinctarry = Arrays.stream(arr).distinct().sorted(Collections.reverseOrder());
+        Stream<Integer> distinctarry = Arrays.stream(arr).distinct().sorted((val1 ,val2) -> val2-val1);
         List<Integer>  result5 = distinctarry.collect(Collectors.toList());
         System.out.println(result5);
 
+        // Problem No 5 using peek() : Use to see the Intermediate result of the stream which is getting processed.
+        List<Integer> numbers = Arrays.asList(2, 1, 3, 4, 6);
+        Stream<Integer> numbersStream = numbers.stream()
+                .filter((Integer n) -> n > 2)
+                .peek((Integer n) -> System.out.println(n))  // its give the 3 , 4 , 6
+                .map((Integer n) -> -1 * n);
+
+        List<Integer> collect = numbersStream.collect(Collectors.toList());
+        System.out.println(collect);
+
+        //Problem No 6 using limit(long maxSize) : Truncate the stream to have no longer than given size.
+        List<Integer> numbers1 = Arrays.asList(2,1,3,4,6);
+        Stream<Integer> limitstream = numbers1.stream().limit(3);
+        List<Integer> result6 = limitstream.collect(Collectors.toList());
+        System.out.println(result6);
+
+        // Problem No 7  using skip() : Skip the first n elements of streams
+
+        List<Integer> numbers2 = Arrays.asList(2, 1, 3, 4, 6);
+        Stream<Integer> skipstream = numbers2.stream().skip(3);
+        List<Integer>  result7 = skipstream.collect(Collectors.toList());
+        System.out.println(result7);
     }
 }
