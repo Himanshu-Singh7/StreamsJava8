@@ -29,7 +29,5 @@ public class Topic7 {
 
         System.out.println("Parallel Processing Time Taken : " +(System.currentTimeMillis() - parallelprocessstarttime) +  "  millisecond");
 
-
-
     }
 }
