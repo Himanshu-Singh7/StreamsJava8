@@ -78,6 +78,6 @@ public class Topic2 {
         int[] array = streamdata.toArray();
         List<int[]> collect1 = Arrays.asList(array).stream().collect(Collectors.toList());
         System.out.println(collect1);
-        
+
     }
 }
