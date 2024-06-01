@@ -2,6 +2,7 @@ package streamapi;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
                            //Intermediate Operations
 public class Topic2 {
@@ -65,5 +66,18 @@ public class Topic2 {
         Stream<Integer> skipstream = numbers2.stream().skip(3);
         List<Integer>  result7 = skipstream.collect(Collectors.toList());
         System.out.println(result7);
+
+        // Problem No 8 using mapToInt() : helps to work with primitive "int" data type
+        List<String> numbers3 = Arrays.asList("2", "1", "4", "6");
+        IntStream intStream = numbers3.stream().mapToInt(val -> Integer.parseInt(val));
+        int[] arraydata = intStream.toArray();  // {2,1,4,6}
+        
+        int [] arraydata1 = {2,1,4,6};
+        IntStream streamdata = Arrays.stream(arraydata1);
+        streamdata.filter(val -> val > 2);
+        int[] array = streamdata.toArray();
+        List<int[]> collect1 = Arrays.asList(array).stream().collect(Collectors.toList());
+        System.out.println(collect1);
+        
     }
 }
