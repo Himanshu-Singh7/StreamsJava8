@@ -16,7 +16,7 @@ public class Topic2 {
 
         // Problem No 2 using map() : use to transform each element
         Stream<String> namestream1 = Stream.of("HELLO","EVERYONE","HOW" , "ARE" , "YOU" , "DOING");
-        Stream<String> mapedStream = namestream1.map(name -> name.toLowerCase());
+        Stream<String> mapedStream = namestream1.map((String name) -> name.toLowerCase());
         List<String>  result1 = mapedStream.collect(Collectors.toList());
         System.out.println(result1);
 
